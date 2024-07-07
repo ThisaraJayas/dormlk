@@ -21,7 +21,7 @@ public class Post {
     private List<String> facilities = new ArrayList<>();
 
     @ManyToOne
-    private User postedBy;
+    private User user;
 
     @JsonIgnore
     @OneToMany(mappedBy = "post", cascade = CascadeType.ALL,orphanRemoval = true)

@@ -18,7 +18,7 @@ public class AuthController {
 
     @Autowired
     private AuthService authService;
-    public ResponseEntity<AuthResponse> createUser(@RequestBody User user){
+    public ResponseEntity<AuthResponse> createUser(@RequestBody User user) throws Exception {
         AuthResponse response =authService.signup(user);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }

@@ -6,5 +6,5 @@ import org.springframework.stereotype.Service;
 
 
 public interface AuthService {
-    AuthResponse signup(User user);
+    AuthResponse signup(User user) throws Exception;
 }

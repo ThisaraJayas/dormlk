@@ -4,7 +4,9 @@ import lk.dorm.dormlk.config.JwtProvider;
 import lk.dorm.dormlk.entity.User;
 import lk.dorm.dormlk.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserDetailsImpl implements UserDetails{
 
     @Autowired

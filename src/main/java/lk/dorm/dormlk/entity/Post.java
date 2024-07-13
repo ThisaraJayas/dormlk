@@ -20,6 +20,7 @@ public class Post {
     @ElementCollection
     private List<String> facilities = new ArrayList<>();
 
+    @JsonIgnore
     @ManyToOne
     private User user;
 

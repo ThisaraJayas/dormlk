@@ -33,6 +33,7 @@ public class AuthServiceImpl implements AuthService{
         if(isUserExit!=null){
             throw new Exception("User Found with the Email");
         }
+
         User createdUser = new User();
         createdUser.setFirstName(user.getFirstName());
         createdUser.setLastName(user.getLastName());

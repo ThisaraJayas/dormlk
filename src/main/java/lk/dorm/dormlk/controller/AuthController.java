@@ -1,6 +1,7 @@
 package lk.dorm.dormlk.controller;
 
 import lk.dorm.dormlk.entity.User;
+import lk.dorm.dormlk.exceptions.UserAlreadyExistsException;
 import lk.dorm.dormlk.request.LoginRequest;
 import lk.dorm.dormlk.response.AuthResponse;
 import lk.dorm.dormlk.service.AuthService;
@@ -19,7 +20,7 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/register")
-    public ResponseEntity<AuthResponse> createUser(@RequestBody User user) throws Exception {
+    public ResponseEntity<AuthResponse> createUser(@RequestBody User user) throws Exception, UserAlreadyExistsException {
         AuthResponse response =authService.signup(user);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }

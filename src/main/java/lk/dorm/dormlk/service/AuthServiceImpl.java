@@ -2,6 +2,7 @@ package lk.dorm.dormlk.service;
 
 import lk.dorm.dormlk.config.JwtProvider;
 import lk.dorm.dormlk.entity.User;
+import lk.dorm.dormlk.exceptions.UserAlreadyExistsException;
 import lk.dorm.dormlk.repository.UserRepository;
 import lk.dorm.dormlk.request.LoginRequest;
 import lk.dorm.dormlk.response.AuthResponse;
@@ -28,10 +29,10 @@ public class AuthServiceImpl implements AuthService{
     private CustomUserDetailsImpl customUserDetails;
 
     @Override
-    public AuthResponse signup(User user) throws Exception {
+    public AuthResponse signup(User user) throws Exception, UserAlreadyExistsException {
         User isUserExit = userRepository.findByEmail(user.getEmail());
         if(isUserExit!=null){
-            throw new Exception("User Found with the Email");
+            throw new UserAlreadyExistsException("User Found with the Email");
         }
 
         User createdUser = new User();

@@ -19,9 +19,13 @@ public class Post {
     private String price;
     private String contact;
     private String availability;
+    private String accommodationType;
 
     @ElementCollection
     private List<String> facilities = new ArrayList<>();
+
+    @ElementCollection
+    private List<String> closeByLocation = new ArrayList<>();
 
     @ElementCollection
     private List<String>suitableFor=new ArrayList<>();

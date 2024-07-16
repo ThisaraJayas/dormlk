@@ -20,7 +20,12 @@ public class PostServiceImpl implements PostService{
         createdPost.setDescription(post.getDescription());
         createdPost.setLocation(post.getLocation());
         createdPost.setFacilities(post.getFacilities());
+        createdPost.setPrice(post.getPrice());
+        createdPost.setContact(post.getContact());
+        createdPost.setAvailability(post.getAvailability());
+        createdPost.setSuitableFor(post.getSuitableFor());
         createdPost.setReviews(post.getReviews());
+
 
         return postRepository.save(createdPost);
     }

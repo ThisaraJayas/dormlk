@@ -16,9 +16,16 @@ public class Post {
     private String title;
     private String location;
     private String description;
+    private String price;
+    private String contact;
+    private String availability;
 
     @ElementCollection
     private List<String> facilities = new ArrayList<>();
+
+    @ElementCollection
+    private List<String>suitableFor=new ArrayList<>();
+
 
     @ManyToOne
     private User user;

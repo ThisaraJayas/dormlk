@@ -31,7 +31,10 @@ public class Post {
     private List<String>suitableFor=new ArrayList<>();
 
     @ElementCollection
-    private List<String>images=new ArrayList<>();
+
+    @CollectionTable(name = "post_images", joinColumns = @JoinColumn(name = "post_id"))
+    @Column(name = "image_url", length = 5000)
+    private List<String> images;
 
 
     @ManyToOne

@@ -17,7 +17,9 @@ public class Post {
     private String location;
     private String description;
     private String price;
-    private String contact;
+    private String mobileContact;
+    private String emailContact;
+    private String whatsappContact;
     private String availability;
     private String accommodationType;
 

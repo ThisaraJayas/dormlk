@@ -23,6 +23,8 @@ public class Post {
     private String availability;
     private String accommodationType;
     private String cityDistrict;
+    private String noOfBed;
+    private String noOfBathroom;
 
     @ElementCollection
     private List<String> facilities = new ArrayList<>();

@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/post")
 public class PostController {
@@ -24,5 +26,11 @@ public class PostController {
         User user = userService.findUserProfileByJwt(jwt);
         Post createdPost = postService.createPost(post,user);
         return new ResponseEntity<>(createdPost, HttpStatus.OK);
+    }
+
+    @GetMapping("/{districts}")
+    public ResponseEntity<List<Post>>getPostByDistrict(@PathVariable String districts){
+        List<Post> posts = postService.findPostsByDistrict(districts);
+        return new ResponseEntity<>(posts, HttpStatus.OK);
     }
 }

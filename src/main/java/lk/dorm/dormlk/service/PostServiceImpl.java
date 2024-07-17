@@ -6,6 +6,8 @@ import lk.dorm.dormlk.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PostServiceImpl implements PostService{
 
@@ -34,5 +36,10 @@ public class PostServiceImpl implements PostService{
 
 
         return postRepository.save(createdPost);
+    }
+
+    @Override
+    public List<Post> findPostsByDistrict(String districts) {
+        return postRepository.findByCityDistrict(districts);
     }
 }

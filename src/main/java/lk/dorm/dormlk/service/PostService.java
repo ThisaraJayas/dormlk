@@ -3,6 +3,10 @@ package lk.dorm.dormlk.service;
 import lk.dorm.dormlk.entity.Post;
 import lk.dorm.dormlk.entity.User;
 
+import java.util.List;
+
 public interface PostService {
     Post createPost(Post post, User user);
+
+    List<Post> findPostsByDistrict(String districts);
 }

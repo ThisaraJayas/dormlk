@@ -30,6 +30,9 @@ public class Post {
     @ElementCollection
     private List<String>suitableFor=new ArrayList<>();
 
+    @ElementCollection
+    private List<String>images=new ArrayList<>();
+
 
     @ManyToOne
     private User user;

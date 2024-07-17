@@ -29,6 +29,7 @@ public class PostServiceImpl implements PostService{
         createdPost.setAccommodationType(post.getAccommodationType());
         createdPost.setCloseByLocation(post.getCloseByLocation());
         createdPost.setImages(post.getImages());
+        createdPost.setCityDistrict(post.getCityDistrict());
         createdPost.setReviews(post.getReviews());
 
 

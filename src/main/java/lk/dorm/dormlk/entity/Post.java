@@ -22,6 +22,7 @@ public class Post {
     private String whatsappContact;
     private String availability;
     private String accommodationType;
+    private String cityDistrict;
 
     @ElementCollection
     private List<String> facilities = new ArrayList<>();

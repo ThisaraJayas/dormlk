@@ -32,4 +32,11 @@ public class PostController {
         List<Post> posts = postService.findPostsByDistrict(districts);
         return new ResponseEntity<>(posts, HttpStatus.OK);
     }
+    @GetMapping("/search")
+    public ResponseEntity<List<Post>>getPostBySearchHome(
+            @RequestParam(required = false)String district,
+            @RequestParam(required = false)String accommodationType){
+        List<Post> searchPost = postService.filterPostBySearchHome(district,accommodationType);
+        return new ResponseEntity<>(searchPost,HttpStatus.OK);
+    }
 }

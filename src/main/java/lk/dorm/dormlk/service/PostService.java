@@ -9,4 +9,6 @@ public interface PostService {
     Post createPost(Post post, User user);
 
     List<Post> findPostsByDistrict(String districts);
+
+    List<Post> filterPostBySearchHome(String district, String accommodationType);
 }

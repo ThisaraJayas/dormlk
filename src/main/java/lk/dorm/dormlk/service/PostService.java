@@ -11,4 +11,6 @@ public interface PostService {
     List<Post> findPostsByDistrict(String districts);
 
     List<Post> filterPostBySearchHome(String district, String accommodationType);
+
+    List<Post> getAllPosts();
 }

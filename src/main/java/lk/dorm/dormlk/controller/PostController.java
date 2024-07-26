@@ -39,4 +39,10 @@ public class PostController {
         List<Post> searchPost = postService.filterPostBySearchHome(district,accommodationType);
         return new ResponseEntity<>(searchPost,HttpStatus.OK);
     }
+
+    @GetMapping("/allPosts")
+    public ResponseEntity<List<Post>>getAllPosts(){
+        List<Post> posts = postService.getAllPosts();
+        return new ResponseEntity<>(posts, HttpStatus.OK);
+    }
 }

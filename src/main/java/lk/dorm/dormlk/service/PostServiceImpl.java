@@ -50,4 +50,9 @@ public class PostServiceImpl implements PostService{
     public List<Post> filterPostBySearchHome(String district, String accommodationType) {
         return postRepository.findByCityDistrictAndAccommodationType(district,accommodationType);
     }
+
+    @Override
+    public List<Post> getAllPosts() {
+        return postRepository.findAll();
+    }
 }

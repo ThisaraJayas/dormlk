@@ -42,6 +42,12 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public List<Post> findPostsByDistrict(String districts) {
+
         return postRepository.findByCityDistrict(districts);
+    }
+
+    @Override
+    public List<Post> filterPostBySearchHome(String district, String accommodationType) {
+        return postRepository.findByCityDistrictAndAccommodationType(district,accommodationType);
     }
 }

@@ -2,6 +2,7 @@ package lk.dorm.dormlk.service;
 
 import lk.dorm.dormlk.config.JwtProvider;
 import lk.dorm.dormlk.entity.User;
+import lk.dorm.dormlk.entity.UserType;
 import lk.dorm.dormlk.exceptions.UserAlreadyExistsException;
 import lk.dorm.dormlk.repository.UserRepository;
 import lk.dorm.dormlk.request.LoginRequest;
@@ -40,6 +41,7 @@ public class AuthServiceImpl implements AuthService{
         createdUser.setLastName(user.getLastName());
         createdUser.setEmail(user.getEmail());
         createdUser.setPassword(passwordEncoder.encode(user.getPassword()));
+        createdUser.setUserType(UserType.REGULAR);
 
         User savedUser = userRepository.save(createdUser);
 

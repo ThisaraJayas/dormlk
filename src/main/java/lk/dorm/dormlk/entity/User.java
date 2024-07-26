@@ -20,6 +20,9 @@ public class User {
     private String lastName;
     private String email;
 
+    @Enumerated(EnumType.STRING)
+    private UserType userType = UserType.REGULAR;
+
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 

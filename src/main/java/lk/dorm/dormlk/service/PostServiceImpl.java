@@ -55,4 +55,9 @@ public class PostServiceImpl implements PostService{
     public List<Post> getAllPosts() {
         return postRepository.findAll();
     }
+
+    @Override
+    public List<Post> findPostByHouseType(String accommodationType) {
+        return postRepository.findByAccommodationType(accommodationType);
+    }
 }

@@ -27,10 +27,15 @@ public class PostController {
         return new ResponseEntity<>(createdPost, HttpStatus.OK);
     }
 
-    @GetMapping("/{districts}")
+    @GetMapping("/district/{districts}")
     public ResponseEntity<List<Post>>getPostByDistrict(@PathVariable String districts){
         List<Post> posts = postService.findPostsByDistrict(districts);
         return new ResponseEntity<>(posts, HttpStatus.OK);
+    }
+    @GetMapping("/accommodationType/{accommodationType}")
+    public ResponseEntity<List<Post>>getPostByHouseType(@PathVariable String accommodationType){
+        List<Post> posts = postService.findPostByHouseType(accommodationType);
+        return new ResponseEntity<>(posts,HttpStatus.OK);
     }
     @GetMapping("/search")
     public ResponseEntity<List<Post>>getPostBySearchHome(

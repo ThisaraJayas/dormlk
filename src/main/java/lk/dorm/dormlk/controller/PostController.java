@@ -37,6 +37,7 @@ public class PostController {
         List<Post> posts = postService.findPostByHouseType(accommodationType);
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
+
     @GetMapping("/search")
     public ResponseEntity<List<Post>>getPostBySearchHome(
             @RequestParam(required = false)String district,

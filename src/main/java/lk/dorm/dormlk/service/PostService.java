@@ -15,4 +15,6 @@ public interface PostService {
     List<Post> getAllPosts();
 
     List<Post> findPostByHouseType(String accommodationType);
+
+    List<Post> findPostsByUserId(Long userId);
 }

@@ -26,6 +26,9 @@ public class Post {
     private String noOfBed;
     private String noOfBathroom;
 
+    @Enumerated(EnumType.STRING)
+    private PostStatus postStatus = PostStatus.PENDING;
+
     @ElementCollection
     private List<String> facilities = new ArrayList<>();
 

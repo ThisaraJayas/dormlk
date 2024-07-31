@@ -60,4 +60,9 @@ public class PostServiceImpl implements PostService{
     public List<Post> findPostByHouseType(String accommodationType) {
         return postRepository.findByAccommodationType(accommodationType);
     }
+
+    @Override
+    public List<Post> findPostsByUserId(Long userId) {
+        return postRepository.findByUserId(userId);
+    }
 }

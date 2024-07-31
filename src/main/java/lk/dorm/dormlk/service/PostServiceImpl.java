@@ -1,6 +1,7 @@
 package lk.dorm.dormlk.service;
 
 import lk.dorm.dormlk.entity.Post;
+import lk.dorm.dormlk.entity.PostStatus;
 import lk.dorm.dormlk.entity.User;
 import lk.dorm.dormlk.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,7 @@ public class PostServiceImpl implements PostService{
         createdPost.setNoOfBathroom(post.getNoOfBathroom());
         createdPost.setNoOfBed(post.getNoOfBed());
         createdPost.setReviews(post.getReviews());
+        createdPost.setPostStatus(PostStatus.PENDING);
 
 
         return postRepository.save(createdPost);

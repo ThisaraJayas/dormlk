@@ -1,13 +1,12 @@
 package lk.dorm.dormlk.controller;
 
 import lk.dorm.dormlk.entity.Post;
+import lk.dorm.dormlk.entity.PostStatus;
 import lk.dorm.dormlk.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +22,12 @@ public class AdminController {
         List<Post> posts = postService.getAllPosts();
         return new ResponseEntity<>(posts, HttpStatus.OK);
     }
+
+    @PutMapping("/{postId}/status")
+    public ResponseEntity<Post> updatePostStatus(@PathVariable Long postId, @RequestBody PostStatus status){
+        Post updatedPost = postService.updateStatus(postId,status);
+        return new ResponseEntity<>(updatedPost, HttpStatus.OK);
+    }
+
 
 }

@@ -3,6 +3,7 @@ package lk.dorm.dormlk.service;
 import lk.dorm.dormlk.entity.Post;
 import lk.dorm.dormlk.entity.PostStatus;
 import lk.dorm.dormlk.entity.User;
+import lk.dorm.dormlk.exceptions.PostNotFoundException;
 import lk.dorm.dormlk.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -66,5 +67,13 @@ public class PostServiceImpl implements PostService{
     @Override
     public List<Post> findPostsByUserId(Long userId) {
         return postRepository.findByUserId(userId);
+    }
+
+    @Override
+    public Post updateStatus(Long postId, PostStatus status) {
+        Post post = postRepository.findById(postId)
+                .orElseThrow(() -> new PostNotFoundException("Post not found with id: " + postId));
+        post.setPostStatus(status);
+        return postRepository.save(post);
     }
 }

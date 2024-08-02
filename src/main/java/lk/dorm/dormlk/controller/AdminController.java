@@ -23,8 +23,8 @@ public class AdminController {
         return new ResponseEntity<>(posts, HttpStatus.OK);
     }
 
-    @PutMapping("/{postId}/status")
-    public ResponseEntity<Post> updatePostStatus(@PathVariable Long postId, @RequestBody PostStatus status){
+    @PutMapping("/{postId}/status/{status}")
+    public ResponseEntity<Post> updatePostStatus(@PathVariable Long postId, @PathVariable PostStatus status){
         Post updatedPost = postService.updateStatus(postId,status);
         return new ResponseEntity<>(updatedPost, HttpStatus.OK);
     }

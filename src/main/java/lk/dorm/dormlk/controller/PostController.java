@@ -32,6 +32,12 @@ public class PostController {
         List<Post> posts = postService.findPostsByDistrict(districts);
         return new ResponseEntity<>(posts, HttpStatus.OK);
     }
+
+    @GetMapping("/{postId}")
+    public ResponseEntity<Post>getPostById(@PathVariable Long postId){
+        Post post = postService.findPostByPostId(postId);
+        return new ResponseEntity<>(post,HttpStatus.OK);
+    }
     @GetMapping("/accommodationType/{accommodationType}")
     public ResponseEntity<List<Post>>getPostByHouseType(@PathVariable String accommodationType){
         List<Post> posts = postService.findPostByHouseType(accommodationType);

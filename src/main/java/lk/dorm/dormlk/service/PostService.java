@@ -20,4 +20,6 @@ public interface PostService {
     List<Post> findPostsByUserId(Long userId);
 
     Post updateStatus(Long postId, PostStatus status);
+
+    Post findPostByPostId(Long postId);
 }

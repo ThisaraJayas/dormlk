@@ -20,7 +20,7 @@ public class AppConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.sessionManagement(management -> management.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.GET, "/api/post/**").permitAll() // Allow GET requests to /api/post without authentication
+                        .requestMatchers(HttpMethod.GET, "/api/post/**","/api/comments/**").permitAll() // Allow GET requests to /api/post without authentication
                         .requestMatchers("/api/**").authenticated()
                         .anyRequest().permitAll())
                 .addFilterBefore(new JwtTokenValidator(), BasicAuthenticationFilter.class)

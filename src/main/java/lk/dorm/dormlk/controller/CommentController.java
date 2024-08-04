@@ -20,10 +20,12 @@ public class CommentController {
     @Autowired
     private UserService userService;
 
+    @PostMapping()
     public ResponseEntity<Comment>createComment(@RequestBody CreateCommentRequest request, @RequestHeader ("Authorization")String jwt) throws Exception {
         User user = userService.findUserProfileByJwt(jwt);
         Comment createdComment = commentService.createComment(request.getContent(),request.getPostId(),user.getId());
         return new ResponseEntity<>(createdComment, HttpStatus.OK);
     }
+
 
 }

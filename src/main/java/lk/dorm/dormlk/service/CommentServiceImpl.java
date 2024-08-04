@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -47,5 +48,10 @@ public class CommentServiceImpl implements CommentService{
         post.getComments().add(savedComment);
         return savedComment;
 
+    }
+
+    @Override
+    public List<Comment> findCommentsByPostId(Long postId) {
+        return commentRepository.findByPostId(postId);
     }
 }

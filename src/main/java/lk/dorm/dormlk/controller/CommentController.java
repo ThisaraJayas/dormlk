@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/comments")
 public class CommentController {
@@ -27,5 +29,10 @@ public class CommentController {
         return new ResponseEntity<>(createdComment, HttpStatus.OK);
     }
 
+    @GetMapping("/{postId}")
+    public ResponseEntity<List<Comment>> getCommentsByPostId(@PathVariable Long postId){
+        List<Comment> comments = commentService.findCommentsByPostId(postId);
+        return new ResponseEntity<>(comments,HttpStatus.OK);
+    }
 
 }

@@ -25,7 +25,7 @@ public class CommentServiceImpl implements CommentService{
     @Autowired
     private CommentRepository commentRepository;
     @Override
-    public Comment createComment(String content, Long postId, Long id) throws Exception {
+    public Comment createComment(String content, Long postId, Long id, Integer starRating) throws Exception {
         Optional<Post> postOptional = postRepository.findById(postId);
         Optional<User> userOptional = userRepository.findById(id);
 
@@ -43,6 +43,7 @@ public class CommentServiceImpl implements CommentService{
         comment.setUser(user);
         comment.setCreatedDateTime(LocalDateTime.now());
         comment.setContent(content);
+        comment.setStarRating(starRating);
 
         Comment savedComment = commentRepository.save(comment);
         post.getComments().add(savedComment);

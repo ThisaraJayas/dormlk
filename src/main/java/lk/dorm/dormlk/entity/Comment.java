@@ -13,6 +13,7 @@ public class Comment {
     private Long id;
     private String content;
     private LocalDateTime createdDateTime;
+    private Integer starRating;
 
     @ManyToOne
     private User user;

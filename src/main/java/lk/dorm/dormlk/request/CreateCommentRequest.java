@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class CreateCommentRequest {
     private Long postId;
     private String content;
+    private Integer starRating;
 }

@@ -11,9 +11,15 @@ public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String fullName;
+    private String email;
+    private String mobileNo;
     private String message;
-    private LocalDateTime dateTime;
+    private LocalDateTime createdDateTime;
 
     @ManyToOne
     private User user;
+
+    @ManyToOne
+    private Post post;
 }

@@ -1,10 +1,14 @@
 package lk.dorm.dormlk.controller;
 
+import lk.dorm.dormlk.entity.Message;
+import lk.dorm.dormlk.entity.User;
+import lk.dorm.dormlk.request.CreateMessageRequest;
 import lk.dorm.dormlk.service.MessageService;
 import lk.dorm.dormlk.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/messages")
@@ -15,4 +19,11 @@ public class MessageController {
 
     @Autowired
     private UserService userService;
+
+    @PostMapping()
+    public ResponseEntity<Message> createMessage(@RequestBody CreateMessageRequest messageRequest, @RequestHeader("Authorization")String jwt) throws Exception {
+        User user =userService.findUserProfileByJwt(jwt);
+        Message message = messageService.createMessage(messageRequest.getPostId(),messageRequest.getFullName(),messageRequest.getEmail(),messageRequest.getMobileNo(),messageRequest.getMessage(),user.getId());
+        return new ResponseEntity<>(message, HttpStatus.OK);
+    }
 }

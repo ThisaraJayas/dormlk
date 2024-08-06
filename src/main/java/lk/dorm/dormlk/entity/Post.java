@@ -56,4 +56,8 @@ public class Post {
     @JsonIgnore //hanlde recurssion problem
     @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,orphanRemoval = true) //mapby dont create separate table go to issue and create nside
     private List<Comment>comments= new ArrayList<>();
+
+    @JsonIgnore //hanlde recurssion problem
+    @OneToMany(mappedBy = "post",cascade = CascadeType.ALL,orphanRemoval = true) //mapby dont create separate table go to issue and create nside
+    private List<Message>messages= new ArrayList<>();
 }

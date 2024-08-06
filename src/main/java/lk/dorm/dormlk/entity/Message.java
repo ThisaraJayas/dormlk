@@ -14,6 +14,7 @@ public class Message {
     private String fullName;
     private String email;
     private String mobileNo;
+    @Column(length = 10000)
     private String message;
     private LocalDateTime createdDateTime;
 

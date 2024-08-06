@@ -15,6 +15,7 @@ public class Post {
     private Long id;
     private String title;
     private String location;
+    @Column(length = 10000)
     private String description;
     private String price;
     private String mobileContact;

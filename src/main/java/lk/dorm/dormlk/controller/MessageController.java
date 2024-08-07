@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/messages")
 public class MessageController {
@@ -25,5 +27,11 @@ public class MessageController {
         User user =userService.findUserProfileByJwt(jwt);
         Message message = messageService.createMessage(messageRequest.getPostId(),messageRequest.getFullName(),messageRequest.getEmail(),messageRequest.getMobileNo(),messageRequest.getMessage(),user.getId());
         return new ResponseEntity<>(message, HttpStatus.OK);
+    }
+
+    @GetMapping("/messages/{userId}")
+    public ResponseEntity<List<Message>> getMessagesByUserId(@PathVariable Long userId){
+        List<Message> messages = messageService.findMessagesByUserId(userId);
+        return new ResponseEntity<>(messages,HttpStatus.OK);
     }
 }

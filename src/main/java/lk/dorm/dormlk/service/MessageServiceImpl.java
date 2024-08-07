@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -49,5 +50,10 @@ public class MessageServiceImpl implements MessageService{
         Message saVedMessage = messageRepository.save(message1);
         post.getMessages().add(saVedMessage);
         return saVedMessage;
+    }
+
+    @Override
+    public List<Message> findMessagesByUserId(Long userId) {
+        return messageRepository.findByUserId(userId);
     }
 }

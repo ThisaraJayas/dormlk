@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CreateReplyRequest {
     private Long messageId;
-    private String message;
+    private String reply;
 }

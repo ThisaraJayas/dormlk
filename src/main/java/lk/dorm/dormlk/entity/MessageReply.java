@@ -16,6 +16,9 @@ public class MessageReply {
     private LocalDateTime createdDateTime;
 
     @ManyToOne
+    private User user;
+
+    @ManyToOne
     @JoinColumn(name = "message_id")
     private Message message;
 }

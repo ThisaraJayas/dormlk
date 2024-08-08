@@ -1,5 +1,6 @@
 package lk.dorm.dormlk.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -25,6 +26,7 @@ public class Message {
     @ManyToOne
     private Post post;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "message", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MessageReply> replies;
 }

@@ -34,4 +34,11 @@ public class MessageController {
         List<Message> messages = messageService.findMessagesByUserId(userId);
         return new ResponseEntity<>(messages,HttpStatus.OK);
     }
+
+    @GetMapping("/received")
+    public ResponseEntity<List<Message>> getReceivedMessages(@RequestHeader("Authorization") String jwt) throws Exception {
+        User user = userService.findUserProfileByJwt(jwt);
+        List<Message> messages = messageService.findRecivedMessagesByUserId(user.getId());
+        return new ResponseEntity<>(messages, HttpStatus.OK);
+    }
 }

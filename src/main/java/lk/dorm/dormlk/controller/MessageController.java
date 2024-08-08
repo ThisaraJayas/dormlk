@@ -41,5 +41,4 @@ public class MessageController {
         List<Message> messages = messageService.findRecivedMessagesByUserId(user.getId());
         return new ResponseEntity<>(messages, HttpStatus.OK);
     }
-
 }

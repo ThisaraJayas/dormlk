@@ -9,7 +9,6 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 public class MessageReply {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

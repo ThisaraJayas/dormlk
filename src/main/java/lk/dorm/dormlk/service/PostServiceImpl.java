@@ -8,6 +8,7 @@ import lk.dorm.dormlk.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -38,6 +39,7 @@ public class PostServiceImpl implements PostService{
         createdPost.setNoOfBed(post.getNoOfBed());
         createdPost.setReviews(post.getReviews());
         createdPost.setPostStatus(PostStatus.PENDING);
+        createdPost.setCreatedDateTime(LocalDateTime.now());
 
 
         return postRepository.save(createdPost);

@@ -13,6 +13,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,9 @@ public class AuthServiceImpl implements AuthService{
 
     @Autowired
     private CustomUserDetailsImpl customUserDetails;
+
+    @Autowired
+    private UserDetailsService userDetailsService;
 
     @Override
     public AuthResponse signup(User user) throws Exception, UserAlreadyExistsException {
@@ -70,6 +74,18 @@ public class AuthServiceImpl implements AuthService{
         response.setMessage("Signin Success");
         response.setJwt(jwt);
         return response;
+    }
+
+    @Override
+    public void changePassword(String jwt, String newPassword) throws Exception {
+        String email = JwtProvider.getEmailFromToken(jwt);
+        User user = userRepository.findByEmail(email);
+        if (user == null) {
+            throw new Exception("User not found");
+        }
+
+        user.setPassword(passwordEncoder.encode(newPassword));
+        userRepository.save(user);
     }
 
     private Authentication authenticate(String email, String password) {

@@ -11,4 +11,6 @@ public interface AuthService {
     AuthResponse signup(User user) throws Exception, UserAlreadyExistsException;
 
     AuthResponse signin(LoginRequest loginRequest);
+
+    void changePassword(String jwt, String newPassword) throws Exception;
 }

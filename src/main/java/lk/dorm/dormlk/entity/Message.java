@@ -26,7 +26,7 @@ public class Message {
     @ManyToOne
     private Post post;
 
-    @JsonIgnore
+
     @OneToMany(mappedBy = "message", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MessageReply> replies;
 }

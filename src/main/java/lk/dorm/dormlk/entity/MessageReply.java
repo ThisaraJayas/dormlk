@@ -1,5 +1,6 @@
 package lk.dorm.dormlk.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -20,5 +21,6 @@ public class MessageReply {
 
     @ManyToOne
     @JoinColumn(name = "message_id")
+    @JsonIgnore
     private Message message;
 }

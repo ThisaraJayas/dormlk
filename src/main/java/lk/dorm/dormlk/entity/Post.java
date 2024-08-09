@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class Post {
     private String cityDistrict;
     private String noOfBed;
     private String noOfBathroom;
+    private LocalDateTime createdDateTime;
 
     @Enumerated(EnumType.STRING)
     private PostStatus postStatus = PostStatus.PENDING;

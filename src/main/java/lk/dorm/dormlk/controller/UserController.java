@@ -24,8 +24,8 @@ public class UserController {
         User user = userService.findUserProfileByJwt(jwt);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-    @PutMapping("/change-password")
-    public ResponseEntity<String> changePassword(@RequestHeader("Authorization") String jwt, @RequestParam String newPassword) {
+    @PutMapping("/change-password/{newPassword}")
+    public ResponseEntity<String> changePassword(@RequestHeader("Authorization") String jwt, @PathVariable String newPassword) {
         try {
             authService.changePassword(jwt, newPassword);
             return new ResponseEntity<>("Password changed successfully", HttpStatus.OK);

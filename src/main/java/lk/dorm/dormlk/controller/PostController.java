@@ -62,4 +62,9 @@ public class PostController {
         List<Post> posts = postService.findPostsByUserId(userId);
         return new ResponseEntity<>(posts,HttpStatus.OK);
     }
+    @DeleteMapping("/{postId}")
+    public ResponseEntity<Void> deletePostById(@PathVariable Long postId) {
+        postService.deletePostById(postId);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }

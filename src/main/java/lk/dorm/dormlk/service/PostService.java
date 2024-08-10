@@ -22,4 +22,6 @@ public interface PostService {
     Post updateStatus(Long postId, PostStatus status);
 
     Post findPostByPostId(Long postId);
+
+    void deletePostById(Long postId);
 }

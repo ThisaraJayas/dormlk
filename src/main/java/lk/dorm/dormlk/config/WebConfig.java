@@ -12,7 +12,8 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
                 .allowedOrigins(
                         "http://localhost:5173",
-                        "https://dormlk-frontend-1anh.vercel.app"
+                        "https://dormlk-frontend-1anh.vercel.app",
+                        "https://www.dorm.lk"
                 ) // Update with your frontend URL
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                 .allowCredentials(true)
